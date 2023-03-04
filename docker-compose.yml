@@ -1,0 +1,35 @@
+version: '3.4'
+services:
+  web:
+    image: "rails-docked-truffle"
+    command: ./bin/dev
+    env_file: .env
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - .:/rails
+      - ruby-bundle-cache:/bundle
+
+  redis:
+    image: "redis:7-alpine"
+    ports:
+      - 6379
+    volumes:
+      - ./tmp/redis_data:/var/lib/redis/data
+
+  db:
+    image: postgres:15-alpine
+    restart: always
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    ports:
+      - 5432:5432
+    volumes:
+      - ./tmp/postgres_data:/var/lib/postgresql/data
+
+volumes:
+  ruby-bundle-cache:
+    external: true
