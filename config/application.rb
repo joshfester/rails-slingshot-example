@@ -30,5 +30,8 @@ module Mvp
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # Don't load all helpers for all controllers
+    config.action_controller.include_all_helpers = false
   end
 end
