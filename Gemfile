@@ -46,6 +46,7 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 gem 'devise', "~> 4.9.0"
+gem "view_component", "~> 3.0.0.rc2"
 
 group :development do
   gem "foreman"
