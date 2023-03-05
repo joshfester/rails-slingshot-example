@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.0.3"
+ruby "3.2.1"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4", ">= 7.0.4.2"
@@ -50,6 +50,7 @@ gem "view_component", "~> 3.0.0.rc2"
 
 group :development do
   gem "foreman"
+  gem "debug", ">= 1.7.1"
 
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"

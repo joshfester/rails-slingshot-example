@@ -14,8 +14,7 @@
 
     <%= render Shared::HeaderComponent.new %>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <%= render Shared::FlashComponent.new(flash: flash) %>
 
     <main>
       <%= yield %>

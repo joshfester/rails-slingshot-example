@@ -87,6 +87,9 @@ GEM
     cssbundling-rails (1.1.2)
       railties (>= 6.0.0)
     date (3.3.3)
+    debug (1.7.1)
+      irb (>= 1.5.0)
+      reline (>= 0.3.1)
     devise (4.9.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -99,6 +102,9 @@ GEM
       activesupport (>= 5.0)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
+    io-console (0.6.0)
+    irb (1.6.2)
+      reline (>= 0.3.0)
     jsbundling-rails (1.1.1)
       railties (>= 6.0.0)
     loofah (2.19.1)
@@ -114,7 +120,7 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.2)
     mini_portile2 (2.8.1)
-    minitest (5.17.0)
+    minitest (5.18.0)
     msgpack (1.6.1)
     net-imap (0.3.4)
       date
@@ -166,6 +172,8 @@ GEM
       zeitwerk (~> 2.5)
     rake (13.0.6)
     regexp_parser (2.7.0)
+    reline (0.3.2)
+      io-console (~> 0.5)
     responders (3.1.0)
       actionpack (>= 5.2)
       railties (>= 5.2)
@@ -222,6 +230,7 @@ DEPENDENCIES
   bootsnap
   capybara
   cssbundling-rails
+  debug (>= 1.7.1)
   devise (~> 4.9.0)
   foreman
   jsbundling-rails
@@ -238,7 +247,7 @@ DEPENDENCIES
   webdrivers
 
 RUBY VERSION
-   ruby 3.0.3p0 (truffleruby 22.3.1)
+   ruby 3.2.1p31
 
 BUNDLED WITH
-   2.2.32
+   2.4.6
