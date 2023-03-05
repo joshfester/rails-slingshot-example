@@ -15,19 +15,11 @@ class Shared::FlashComponent < ApplicationComponent
   end
 
   def icon_class
-    if @flash[:alert].present?
-      'triangle-exclamation'
-    else
-      'circle-info'
-    end
+    'circle-info'
   end
 
   def alert_class
-    if @flash[:alert].present?
-      'danger'
-    else
-      'info'
-    end
+    'info'
   end
 
 end
