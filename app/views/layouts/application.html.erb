@@ -17,7 +17,13 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
+  <body 
+    id="<%= action_name %>"
+    class="
+      <%= controller_name %>
+      signed-<%= user_signed_in? ? 'in' : 'out'  %>
+    "
+  >
 
     <%= render Shared::HeaderComponent.new %>
 

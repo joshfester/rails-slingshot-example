@@ -6,3 +6,10 @@
   // Full viewport minus header height
   min-height: calc(100vh - 56px);
 }
+
+body.signed-in *.d-signed-out {
+  display: none !important;
+}
+body.signed-out *.d-signed-in {
+  display: none !important;
+}
