@@ -1,3 +1,8 @@
 // Entry point for your Sass build
 
 @import "_bootstrap";
+
+.h-full {
+  // Full viewport minus header height
+  min-height: calc(100vh - 56px);
+}
