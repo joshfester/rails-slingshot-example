@@ -14,6 +14,14 @@ class Shared::FlashComponent < ApplicationComponent
     content.present?
   end
 
+  def icon_class
+    if @flash[:alert].present?
+      'triangle-exclamation'
+    else
+      'circle-info'
+    end
+  end
+
   def alert_class
     if @flash[:alert].present?
       'danger'
