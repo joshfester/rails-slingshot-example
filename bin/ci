@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+echo 'Linting with standardrb...'
+bundle exec standardrb --fix
+echo 'Running tests...'
+bundle exec rails test
+echo '...done'
