@@ -53,12 +53,13 @@ gem "pundit"
 gem "view_component", "~> 3.0.0.rc2"
 
 group :development, :test do
-  gem "standard"
+  gem "rubocop-rails", require: false
+  gem "standard", "~> 1.24.3"
 end
 
 group :development do
   gem "foreman"
-  gem "debug", ">= 1.7.1"
+  gem "debug", "~> 1.7.1"
 
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"

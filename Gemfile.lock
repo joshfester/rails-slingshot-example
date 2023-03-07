@@ -256,6 +256,10 @@ GEM
     rubocop-performance (1.15.2)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
+    rubocop-rails (2.18.0)
+      activesupport (>= 4.2.0)
+      rack (>= 1.1)
+      rubocop (>= 1.33.0, < 2.0)
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
@@ -325,7 +329,7 @@ DEPENDENCIES
   bootsnap
   capybara
   cssbundling-rails
-  debug (>= 1.7.1)
+  debug (~> 1.7.1)
   devise (~> 4.9.0)
   foreman
   jsbundling-rails
@@ -334,10 +338,11 @@ DEPENDENCIES
   puma (~> 5.0)
   pundit
   rails (~> 7.0.4, >= 7.0.4.2)
+  rubocop-rails
   sassc-rails
   selenium-webdriver
   sprockets-rails
-  standard
+  standard (~> 1.24.3)
   stimulus-rails
   turbo-rails
   tzinfo-data
