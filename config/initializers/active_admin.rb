@@ -1,11 +1,12 @@
+# https://github.com/activeadmin/activeadmin/issues/7264
 module ActiveAdminCustomAssets
   def stylesheet_pack_tag(style, **options)
     stylesheet_link_tag "active_admin", "data-turbo-track": "reload"
   end
 
   def javascript_pack_tag(script, **options)
-    javascript_include_tag( "https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js") + 
-    javascript_include_tag( "active_admin", "data-turbo-track": "reload", defer: true)
+    javascript_include_tag( "https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js" ) + 
+    javascript_include_tag( "active_admin", "data-turbo-track": "reload", defer: true )
   end
 end
 
