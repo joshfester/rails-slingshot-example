@@ -192,6 +192,7 @@ GEM
     nokogiri (1.14.2)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
+    oj (3.14.2)
     orm_adapter (0.5.0)
     parallel (1.22.1)
     parser (3.2.1.0)
@@ -339,9 +340,10 @@ DEPENDENCIES
   foreman
   jsbundling-rails
   letter_opener
+  oj (~> 3.14.2)
   pg (~> 1.1)
   puma (~> 5.0)
-  pundit
+  pundit (~> 2.3.0)
   rails (~> 7.0.4, >= 7.0.4.2)
   rubocop-rails
   sassc-rails
