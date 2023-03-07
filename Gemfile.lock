@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/activeadmin/activeadmin.git
   revision: 51689e48ec3faa51127b8462b2219e5e0c09ad8a
-  branch: master
+  ref: 51689e4
   specs:
     activeadmin (2.13.1)
       arbre (~> 1.2, >= 1.2.1)
@@ -86,6 +86,7 @@ GEM
     arbre (1.5.0)
       activesupport (>= 3.0.0, < 7.1)
       ruby2_keywords (>= 0.0.2, < 1.0)
+    ast (2.4.2)
     bcrypt (3.1.18)
     bindex (0.8.1)
     bootsnap (1.16.0)
@@ -141,6 +142,7 @@ GEM
       thor (>= 0.14, < 2.0)
     jsbundling-rails (1.1.1)
       railties (>= 6.0.0)
+    json (2.6.3)
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.2.2)
@@ -153,6 +155,7 @@ GEM
       activerecord
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
+    language_server-protocol (3.17.0.3)
     launchy (2.5.2)
       addressable (~> 2.8)
     letter_opener (1.8.1)
@@ -186,6 +189,9 @@ GEM
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    parallel (1.22.1)
+    parser (3.2.1.0)
+      ast (~> 2.4.1)
     pg (1.4.6)
     public_suffix (5.0.1)
     puma (5.6.5)
@@ -222,6 +228,7 @@ GEM
       rake (>= 12.2)
       thor (~> 1.0)
       zeitwerk (~> 2.5)
+    rainbow (3.1.1)
     rake (13.0.6)
     ransack (3.2.1)
       activerecord (>= 6.1.5)
@@ -234,6 +241,22 @@ GEM
       actionpack (>= 5.2)
       railties (>= 5.2)
     rexml (3.2.5)
+    rubocop (1.44.1)
+      json (~> 2.3)
+      parallel (~> 1.10)
+      parser (>= 3.2.0.0)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 1.8, < 3.0)
+      rexml (>= 3.2.5, < 4.0)
+      rubocop-ast (>= 1.24.1, < 2.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 2.4.0, < 3.0)
+    rubocop-ast (1.27.0)
+      parser (>= 3.2.1.0)
+    rubocop-performance (1.15.2)
+      rubocop (>= 1.7.0, < 2.0)
+      rubocop-ast (>= 0.4.0)
+    ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     sassc (2.4.0)
@@ -255,6 +278,10 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    standard (1.24.3)
+      language_server-protocol (~> 3.17.0.2)
+      rubocop (= 1.44.1)
+      rubocop-performance (= 1.15.2)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
     thor (1.2.1)
@@ -266,6 +293,7 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    unicode-display_width (2.4.2)
     view_component (3.0.0.rc2)
       activesupport (>= 5.2.0, < 8.0)
       concurrent-ruby (~> 1.0)
@@ -309,6 +337,7 @@ DEPENDENCIES
   sassc-rails
   selenium-webdriver
   sprockets-rails
+  standard
   stimulus-rails
   turbo-rails
   tzinfo-data
