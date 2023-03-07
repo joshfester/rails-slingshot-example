@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Shared::FlashComponent < ApplicationComponent
-
   def initialize(flash: nil)
     @flash = flash
   end
@@ -15,11 +14,10 @@ class Shared::FlashComponent < ApplicationComponent
   end
 
   def icon_class
-    'circle-info'
+    "circle-info"
   end
 
   def alert_class
-    'info'
+    "info"
   end
-
 end

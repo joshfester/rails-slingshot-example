@@ -5,8 +5,8 @@ module ActiveAdminCustomAssets
   end
 
   def javascript_pack_tag(script, **options)
-    javascript_include_tag( "https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js" ) + 
-    javascript_include_tag( "active_admin", "data-turbo-track": "reload", defer: true )
+    javascript_include_tag("https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js") +
+      javascript_include_tag("active_admin", "data-turbo-track": "reload", defer: true)
   end
 end
 

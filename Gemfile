@@ -34,7 +34,7 @@ gem "cssbundling-rails"
 # gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
@@ -48,8 +48,8 @@ gem "sassc-rails"
 # Still no official Rails 7 support from ActiveAdmin
 # https://github.com/activeadmin/activeadmin/commit/51689e48ec3faa51127b8462b2219e5e0c09ad8a
 gem "activeadmin", github: "activeadmin/activeadmin", ref: "51689e4"
-gem 'devise', "~> 4.9.0"
-gem 'pundit'
+gem "devise", "~> 4.9.0"
+gem "pundit"
 gem "view_component", "~> 3.0.0.rc2"
 
 group :development, :test do
