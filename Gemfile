@@ -53,6 +53,7 @@ gem "pundit"
 gem "view_component", "~> 3.0.0.rc2"
 
 group :development, :test do
+  gem "dotenv-rails"
   gem "rubocop-rails", require: false
   gem "standard", "~> 1.24.3"
 end
