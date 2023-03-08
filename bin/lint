@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+echo 'Linting with standardrb...'
+bundle exec standardrb --fix
