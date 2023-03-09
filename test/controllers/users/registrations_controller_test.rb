@@ -1,5 +1,4 @@
 class RegistrationsControllerTest < ActionDispatch::IntegrationTest
-
   def test_get_new
     get new_user_registration_url
     assert_response :success
@@ -28,4 +27,18 @@ class RegistrationsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  def test_post_create_invalid
+    assert_no_difference "User.count" do
+      post user_registration_url, params: {
+        user: {
+          email: "gandalf@hotmail.com",
+          password: "test12345",
+          password_confirmation: "nope"
+        }
+      }
+    end
+
+    assert_response :unprocessable_entity
+    assert_select ".alert-danger", 1
+  end
 end
