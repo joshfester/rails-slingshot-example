@@ -81,5 +81,5 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 
-  gem "factory_bot", "~> 6.2.1"
+  gem "factory_bot_rails", "~> 6.2.0"
 end

@@ -18,6 +18,10 @@ class Shared::FlashComponent < ApplicationComponent
   end
 
   def alert_class
-    "info"
+    if @flash[:alert].present?
+      "danger"
+    else
+      "info"
+    end
   end
 end
