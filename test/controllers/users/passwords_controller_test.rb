@@ -37,7 +37,7 @@ module Users
 
     def test_get_edit
       user = FactoryBot.create :user, email: "gandalf@hotmail.com"
-      token  = user.send_reset_password_instructions
+      token = user.send_reset_password_instructions
 
       get edit_user_password_url, params: {
         reset_password_token: token
@@ -59,7 +59,7 @@ module Users
 
     def test_put_update
       user = FactoryBot.create :user, email: "gandalf@hotmail.com"
-      token  = user.send_reset_password_instructions
+      token = user.send_reset_password_instructions
 
       put user_password_url, params: {
         user: {
@@ -76,7 +76,7 @@ module Users
 
     def test_put_update_invalid
       user = FactoryBot.create :user, email: "gandalf@hotmail.com"
-      token  = user.send_reset_password_instructions
+      token = user.send_reset_password_instructions
 
       put user_password_url, params: {
         user: {
