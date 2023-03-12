@@ -45,13 +45,11 @@ gem "sassc-rails"
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
-# Still no official Rails 7 support from ActiveAdmin
-# https://github.com/activeadmin/activeadmin/commit/51689e48ec3faa51127b8462b2219e5e0c09ad8a
-gem "activeadmin", github: "activeadmin/activeadmin", ref: "51689e4"
+gem "avo", "~> 2.27.1"
 gem "devise", "~> 4.9.0"
 gem "oj", "~> 3.14.2"
 gem "pundit", "~> 2.3.0"
-gem "view_component", "~> 3.0.0.rc2"
+gem "view_component", "~> 2.82.0"
 
 group :development, :test do
   gem "dotenv-rails"
