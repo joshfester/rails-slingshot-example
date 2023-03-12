@@ -23,6 +23,8 @@ Avo.configure do |config|
     config.current_user_method = :current_user
   end
 
+  config.sign_out_path_name = :destroy_user_session_path
+
   ## == Authorization ==
   # config.authorization_methods = {
   #   index: 'index?',
