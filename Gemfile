@@ -49,6 +49,7 @@ gem "avo", "~> 2.27.1"
 gem "devise", "~> 4.9.0"
 gem "oj", "~> 3.14.2"
 gem "pundit", "~> 2.3.0"
+gem 'ransack', "~> 4.0.0"
 gem "view_component", "~> 2.82.0"
 
 group :development, :test do
