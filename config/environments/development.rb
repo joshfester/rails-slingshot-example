@@ -1,6 +1,13 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.bullet_logger = true
+    Bullet.rails_logger = true
+    Bullet.add_footer = true
+  end
+
   host = "dev.joshfester.com"
   config.hosts << host
   config.action_mailer.default_url_options = {host: host, port: 3000}

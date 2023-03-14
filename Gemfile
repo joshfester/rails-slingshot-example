@@ -47,12 +47,14 @@ gem "sassc-rails"
 
 gem "avo", "~> 2.27.1"
 gem "devise", "~> 4.9.0"
+gem "good_job", "~> 3.14.1"
 gem "oj", "~> 3.14.2"
 gem "pundit", "~> 2.3.0"
 gem "ransack", "~> 4.0.0"
 gem "view_component", "~> 2.82.0"
 
 group :development, :test do
+  gem "bullet"
   gem "dotenv-rails"
   gem "rubocop-rails", require: false
   gem "standard", "~> 1.24.3"
@@ -71,7 +73,6 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 
-  gem "bullet"
   gem "letter_opener"
 end
 

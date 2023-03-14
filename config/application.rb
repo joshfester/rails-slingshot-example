@@ -33,5 +33,7 @@ module Mvp
 
     # Don't load all helpers for all controllers
     config.action_controller.include_all_helpers = false
+
+    config.active_job.queue_adapter = :good_job
   end
 end
