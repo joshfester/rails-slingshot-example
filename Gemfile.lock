@@ -351,6 +351,7 @@ DEPENDENCIES
   jsbundling-rails
   letter_opener
   oj (~> 3.14.2)
+  pagy (~> 6.0)
   pg (~> 1.1)
   puma (~> 5.0)
   pundit (~> 2.3.0)
