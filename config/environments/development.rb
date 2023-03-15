@@ -8,8 +8,9 @@ Rails.application.configure do
     Bullet.add_footer = true
   end
 
-  host = "dev.joshfester.com"
+  host = ENV.fetch("HOST_NAME", "localhost")
   config.hosts << host
+  Rails.application.routes.default_url_options[:host] = "#{host}:3000"
   config.action_mailer.default_url_options = {host: host, port: 3000}
   config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true

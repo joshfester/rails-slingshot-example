@@ -52,6 +52,7 @@ gem "oj", "~> 3.14.2"
 gem "pagy", "~> 6.0"
 gem "pundit", "~> 2.3.0"
 gem "ransack", "~> 4.0.0"
+gem "sitemap_generator", "~> 6.3.0"
 gem "view_component", "~> 2.82.0"
 
 group :development, :test do
