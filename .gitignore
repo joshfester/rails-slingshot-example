@@ -36,4 +36,5 @@
 /node_modules
 
 # Ignore local dotenv files
-.env*.local
+.env
+.env*
