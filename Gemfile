@@ -45,14 +45,17 @@ gem "sassc-rails"
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+gem 'action_policy', '~> 0.6.5'
 gem "avo", "~> 2.27.1"
 gem "devise", "~> 4.9.0"
 gem "good_job", "~> 3.14.1"
+gem "hiredis", "~> 0.6.3"
 gem "oj", "~> 3.14.2"
 gem "pagy", "~> 6.0"
 gem "pundit", "~> 2.3.0"
 gem "rack-attack", "~> 6.6.1"
 gem "ransack", "~> 4.0.0"
+gem "redis", "~> 4.8.1"
 gem "sitemap_generator", "~> 6.3.0"
 gem "view_component", "~> 2.82.0"
 
