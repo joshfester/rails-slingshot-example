@@ -3,10 +3,10 @@ module Users
     def test_get_new
       get new_user_registration_url
       assert_response :success
-      assert_select "[name='user[email]']", 1
-      assert_select "[name='user[password]']", 1
-      assert_select "[name='user[password_confirmation]']", 1
-      assert_select "[type=submit]", 1
+      assert_select "form#new_user [name='user[email]']", 1
+      assert_select "form#new_user [name='user[password]']", 1
+      assert_select "form#new_user [name='user[password_confirmation]']", 1
+      assert_select "form#new_user [type=submit]", 1
     end
 
     def test_post_create
