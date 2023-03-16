@@ -47,6 +47,7 @@ gem "sassc-rails"
 
 gem 'action_policy', '~> 0.6.5'
 gem "avo", "~> 2.27.1"
+gem "brakeman", "~> 5.4.1"
 gem "devise", "~> 4.9.0"
 gem "good_job", "~> 3.14.1"
 gem "hiredis", "~> 0.6.3"
