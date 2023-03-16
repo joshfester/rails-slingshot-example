@@ -24,7 +24,15 @@
               <li><a class="dropdown-item" href="<%= avo_path %>">Admin</a></li>
               <li><a class="dropdown-item" href="<%= edit_user_registration_path %>">Profile</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="<%= destroy_user_session_path %>">Logout</a></li>
+              <li>
+                <%= 
+                  helpers.button_to 'Logout',
+                    destroy_user_session_path,
+                    form_class: 'dropdown-item',
+                    method: :delete,
+                    class: 'btn btn-link text-body p-0 text-decoration-none w-100 text-start'
+                %>
+              </li>
             </ul>
           </li>
         </ul>
