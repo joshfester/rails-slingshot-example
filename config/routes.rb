@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   authenticate :user do
     mount Avo::Engine, at: Avo.configuration.root_path
+    mount RailsPgExtras::Web::Engine, at: 'pg_extras'
   end
 
   devise_for :users
