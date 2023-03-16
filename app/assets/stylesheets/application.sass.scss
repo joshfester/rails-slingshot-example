@@ -10,6 +10,11 @@
 body.signed-in *.d-signed-out {
   display: none !important;
 }
+
 body.signed-out *.d-signed-in {
+  display: none !important;
+}
+
+body.user-not-admin .user-is-admin {
   display: none !important;
 }
