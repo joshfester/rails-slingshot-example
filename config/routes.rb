@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  authenticate :user do
+  authenticate :user, lambda { |u| AvoPolicy.new(user: u).view? } do
     mount Avo::Engine, at: Avo.configuration.root_path
+  end
+
+  authenticate :user, lambda { |u| u.admin? } do
     mount RailsPgExtras::Web::Engine, at: 'pg_extras'
   end
 
