@@ -1,37 +1,39 @@
-<nav data-turbo-permanent class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid d-flex">
+<% helpers.cache do %>
+  <nav data-turbo-permanent class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid d-flex">
 
-    <a class="navbar-brand me-lg-auto" href="/">
-      <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Bootstrap" width="30" height="24">
-    </a>
+      <a class="navbar-brand me-lg-auto" href="/">
+        <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Bootstrap" width="30" height="24">
+      </a>
 
-    <a href="<%= new_user_registration_path %>" class="btn btn-primary mx-3 d-signed-out">Signup</a>
+      <a href="<%= new_user_registration_path %>" class="btn btn-primary mx-3 d-signed-out">Signup</a>
 
-    <div class="collapse navbar-collapse flex-grow-0" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="/">Home</a>
-        </li>
-        <li class="nav-item d-signed-out">
-          <a href="<%= new_user_session_path %>" class="nav-link">Login</a>
-        </li>
-        <li class="nav-item dropdown d-signed-in">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa-solid fa-circle-user"></i>
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="<%= avo_path %>">Admin</a></li>
-            <li><a class="dropdown-item" href="<%= edit_user_registration_path %>">Profile</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="<%= destroy_user_session_path %>">Logout</a></li>
-          </ul>
-        </li>
-      </ul>
+      <div class="collapse navbar-collapse flex-grow-0" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item d-signed-out">
+            <a href="<%= new_user_session_path %>" class="nav-link">Login</a>
+          </li>
+          <li class="nav-item dropdown d-signed-in">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa-solid fa-circle-user"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="<%= avo_path %>">Admin</a></li>
+              <li><a class="dropdown-item" href="<%= edit_user_registration_path %>">Profile</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="<%= destroy_user_session_path %>">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
     </div>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-  </div>
-</nav>
+  </nav>
+<% end %>
