@@ -16,6 +16,8 @@ jobs:
         image: postgres:15-alpine
         env:
           POSTGRES_HOST_AUTH_METHOD: trust
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
         ports:
           - 5432:5432
 
@@ -31,6 +33,8 @@ jobs:
 
       - name: Setup database
         run: bundle exec rails db:prepare
+        env:
+          DATABASE_HOST: localhost:5432
 
       - name: Run Tests
         run: bundle exec rails test
