@@ -1,9 +1,0 @@
-#!/usr/bin/env sh
-
-echo 'Linting with standardrb...'
-bundle exec standardrb
-echo 'Running tests...'
-bundle exec rails test
-echo 'Security check via brakeman'
-bundle exec brakeman
-echo '...done'

@@ -1,4 +1,4 @@
-name: Ruby
+name: CI
 
 on:
   push:
@@ -11,11 +11,32 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:15-alpine
+        env:
+          POSTGRES_HOST_AUTH_METHOD: trust
+        ports:
+          - 5432:5432
+
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
+
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
+
       - name: Install dependencies
         run: bundle install
-      - name: Run CI
-        run: ./bin/ci
+
+      - name: Setup database
+        run: bundle exec rails db:prepare
+
+      - name: Run Tests
+        run: bundle exec rails test
+
+      - name: Run Standardrb
+        run: bundle exec standardrb
+
+      - name: Run Brakeman
+        run: bundle exec brakeman
