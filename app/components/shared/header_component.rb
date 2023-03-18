@@ -1,4 +1,6 @@
 # frozen_string_literal: true
 
-class Shared::HeaderComponent < ApplicationComponent
+module Shared
+  class HeaderComponent < ApplicationComponent
+  end
 end
