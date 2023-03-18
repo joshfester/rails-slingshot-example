@@ -37,6 +37,7 @@ jobs:
       - name: Run Tests
         run: |
           bundle exec rails db:prepare
+          bundle exec rails assets:precompile
           bundle exec rails test
         env:
           DATABASE_HOST: localhost
