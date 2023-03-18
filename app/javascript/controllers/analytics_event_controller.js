@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus";
+import gtag from "../src/analytics";
 
 export default class extends Controller {
   static values = {
@@ -8,7 +9,6 @@ export default class extends Controller {
 
   track(e) {
     gtag('event', this.nameValue, this.optionsValue);
-    console.log('dataLayer:::', dataLayer);
   }
 
 }
