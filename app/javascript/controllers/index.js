@@ -4,8 +4,5 @@
 
 import { application } from "./application"
 
-import GtagEventController from "./gtag_event_controller"
-application.register("gtag-event", GtagEventController)
-
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
+import AnalyticsEventController from "./analytics_event_controller"
+application.register("analytics-event", AnalyticsEventController)
