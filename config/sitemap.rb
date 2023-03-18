@@ -1,6 +1,6 @@
 # run this with rake sitemap:refresh:no_ping
 # Set the host name for URL creation
-host = ENV.fetch("HOST_NAME").present? ? ENV.fetch("HOST_NAME") : "localhost"
+host = (ENV.fetch("HOST_NAME").presence || "localhost")
 protocol = Rails.env.production? ? "https://" : "http://"
 SitemapGenerator::Sitemap.default_host = protocol + host
 SitemapGenerator::Sitemap.compress = false

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   end
 
   authenticate :user, lambda { |u| u.admin? } do
-    mount RailsPgExtras::Web::Engine, at: 'pg_extras'
+    mount RailsPgExtras::Web::Engine, at: "pg_extras"
   end
 
   devise_for :users
