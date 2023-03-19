@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Shared
+module Layout
   class FlashComponent < ApplicationComponent
     def initialize(flash: nil)
       @flash = flash

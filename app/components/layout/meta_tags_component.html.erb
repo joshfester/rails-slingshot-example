@@ -1,0 +1,20 @@
+<title><%= title %></title>
+
+<meta name="description" content="<%= @description %>">
+<meta name="keywords" content="<%= @keywords %>">
+
+<% if @noindex.present? %>
+  <meta name="robots" content="noindex">
+<% elsif @canonical.present? %>
+  <link rel="canonical" href="<%= @canonical %>">
+<% end %>
+
+<meta name="og:title" content="<%= og_title %>">
+<meta name="og:site_name" content="<%= og_site_name %>">
+<meta name="og:url" content="<%= og_url %>">
+<meta name="og:description" content="<%= og_description %>">
+<meta name="og:type" content="<%= og_type %>">
+
+<% if @og_image.present? %>
+  <meta name="og:image" content="<%= @og_image %>">
+<% end %>

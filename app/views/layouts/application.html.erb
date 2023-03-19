@@ -1,7 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mvp</title>
+    <%= 
+      render Layout::MetaTagsComponent.new(
+        title: yield(:meta_title).presence,
+        description: yield(:meta_description).presence, 
+        keywords: yield(:meta_keywords).presence, 
+        canonical: yield(:meta_canonical).presence, 
+        noindex: yield(:meta_noindex).presence, 
+        og_title: yield(:og_title).presence,
+        og_site_name: yield(:og_site_name).presence,
+        og_url: yield(:og_url).presence,
+        og_description: yield(:og_description).presence,
+        og_type: yield(:og_type).presence,
+        og_image: yield(:og_image).presence
+      ) 
+    %>
+
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -17,7 +32,7 @@
       window.railsApp = {};
     </script>
 
-    <%= render Shared::GoogleTagComponent.new(id: ENV.fetch("GOOGLE_TAG_ID", nil)) %>
+    <%= render Layout::GoogleTagComponent.new(id: ENV.fetch("GOOGLE_TAG_ID", nil)) %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
@@ -32,15 +47,15 @@
     "
   >
 
-    <%= render Shared::HeaderComponent.new %>
+    <%= render Layout::HeaderComponent.new %>
 
-    <%= render Shared::FlashComponent.new(flash: flash) %>
+    <%= render Layout::FlashComponent.new(flash: flash) %>
 
     <main>
       <%= yield %>
     </main>
 
-    <%= render Shared::FooterComponent.new %>
+    <%= render Layout::FooterComponent.new %>
 
   </body>
 </html>
