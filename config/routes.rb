@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  authenticate :user, lambda { |u| AvoPolicy.new(user: u).view? } do
+  authenticate :user, lambda { |u| AvoRoutePolicy.new(user: u).view? } do
     mount Avo::Engine, at: Avo.configuration.root_path
   end
 
