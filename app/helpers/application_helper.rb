@@ -19,11 +19,11 @@ module ApplicationHelper
     content_for :meta_keywords, keywords
     content_for :meta_canonical, canonical
     content_for :meta_noindex, noindex
-    content_for :meta_og_tags, og_title
-    content_for :meta_og_tags, og_site_name
-    content_for :meta_og_tags, og_url
-    content_for :meta_og_tags, og_description
-    content_for :meta_og_tags, og_type
-    content_for :meta_og_tags, og_image
+    content_for :meta_og_title, og_title
+    content_for :meta_og_site_name, og_site_name
+    content_for :meta_og_url, og_url
+    content_for :meta_og_description, og_description
+    content_for :meta_og_type, og_type
+    content_for :meta_og_image, og_image
   end
 end

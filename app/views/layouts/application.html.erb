@@ -8,12 +8,12 @@
         keywords: yield(:meta_keywords).presence, 
         canonical: yield(:meta_canonical).presence, 
         noindex: yield(:meta_noindex).presence, 
-        og_title: yield(:og_title).presence,
-        og_site_name: yield(:og_site_name).presence,
-        og_url: yield(:og_url).presence,
-        og_description: yield(:og_description).presence,
-        og_type: yield(:og_type).presence,
-        og_image: yield(:og_image).presence
+        og_title: yield(:meta_og_title).presence,
+        og_site_name: yield(:meta_og_site_name).presence,
+        og_url: yield(:meta_og_url).presence,
+        og_description: yield(:meta_og_description).presence,
+        og_type: yield(:meta_og_type).presence,
+        og_image: yield(:meta_og_image).presence
       ) 
     %>
 
