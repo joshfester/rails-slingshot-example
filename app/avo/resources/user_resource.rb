@@ -17,4 +17,6 @@ class UserResource < Avo::BaseResource
 
   action Archive
   action Restore
+
+  filter Archived
 end
