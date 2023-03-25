@@ -86,6 +86,12 @@ Avo.configure do |config|
   #   placeholder: "/avo-assets/placeholder.svg",
   #   favicon: "/avo-assets/favicon.ico"
   # }
+  config.branding = {
+    logo: "/apple-touch-icon.png",
+    logomark: "/apple-touch-icon.png",
+    placeholder: "/apple-touch-icon.png",
+    favicon: "/favicon.ico"
+  }
 
   ## == Breadcrumbs ==
   # config.display_breadcrumbs = true
