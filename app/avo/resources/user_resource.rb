@@ -10,7 +10,9 @@ class UserResource < Avo::BaseResource
   end
 
   field :id, as: :id
-  # Fields generated from the model
   field :email, as: :text
-  # add fields here
+  field :deleted_at, as: :date_time
+
+  action Archive
+  action Restore
 end

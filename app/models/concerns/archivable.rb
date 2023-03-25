@@ -10,4 +10,12 @@ module Archivable
   def active?
     !deleted_at?
   end
+
+  def archive
+    update deleted_at: Time.zone.now
+  end
+
+  def restore
+    update deleted_at: nil
+  end
 end
