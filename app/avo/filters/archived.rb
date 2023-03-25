@@ -1,5 +1,5 @@
 class Archived < Avo::Filters::SelectFilter
-  self.name = "Archived"
+  self.name = "Status"
 
   def apply(request, query, value)
     case value
