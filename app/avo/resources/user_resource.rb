@@ -11,7 +11,9 @@ class UserResource < Avo::BaseResource
 
   field :id, as: :id
   field :email, as: :text
-  field :deleted_at, as: :date_time
+  field :created_at, as: :date_time, only_on: [:index, :show]
+  field :updated_at, as: :date_time, only_on: [:index, :show]
+  field :deleted_at, as: :date_time, only_on: [:index, :show]
 
   action Archive
   action Restore
