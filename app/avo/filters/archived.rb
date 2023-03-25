@@ -3,7 +3,7 @@ class Archived < Avo::Filters::SelectFilter
 
   def apply(request, query, value)
     case value
-    when 'archived'
+    when "archived"
       query.archived
     else
       query.not_archived
@@ -20,5 +20,4 @@ class Archived < Avo::Filters::SelectFilter
   def default
     :not_archived
   end
-
 end

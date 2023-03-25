@@ -2,6 +2,5 @@
 
 module Layout
   class FaviconComponent < ApplicationComponent
-
   end
 end
