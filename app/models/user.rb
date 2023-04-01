@@ -7,9 +7,9 @@ class User < ApplicationRecord
     :recoverable, :rememberable, :validatable
 
   enum role: {
-    reader: 0,
-    editor: 1,
-    admin: 2
+    reader: "reader",
+    editor: "editor",
+    admin: "admin"
   }
 
   def self.ransackable_attributes(auth_object = nil)
