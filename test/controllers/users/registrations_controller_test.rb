@@ -12,7 +12,7 @@ module Users
     def test_post_create
       email = "gandalf@hotmail.com"
 
-      assert_difference "User.count", 1 do
+      assert_difference ->{ Team.count } => 1, ->{ User.count } => 1 do
         post user_registration_url, params: {
           user: {
             email: email,
