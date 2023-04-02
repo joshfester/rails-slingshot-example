@@ -22,7 +22,10 @@ module Users
         }
       end
 
-      assert_equal email, User.order(created_at: :desc).first.email
+      user = User.find_by email: email
+
+      assert user.personal_team.present?
+      assert_equal 1, user.owned_teams.count
       assert_redirected_to root_url
       follow_redirect!
       assert_response :success

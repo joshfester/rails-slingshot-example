@@ -8,8 +8,8 @@ class User < ApplicationRecord
 
   has_many :team_memberships
   has_many :teams, through: :team_memberships
-  has_many :owned_teams, as: :owner
-  has_one :personal_team, -> { where owner: self, is_personal: true }, through: :owned_teams
+  has_many :owned_teams, foreign_key: :owner_id, class_name: "Team"
+  has_one :personal_team, -> { where is_personal: true }, foreign_key: :owner_id, class_name: "Team"
 
   enum role: {
     reader: "reader",
