@@ -1,6 +1,21 @@
 module ApplicationHelper
   include Pagy::Frontend
 
+  def active_link_to(name = nil, options = nil, **html_options, &block)
+    options = block_given? ? name : options
+
+    if current_page?(options)
+      html_options[:class] = class_names(html_options[:class], :active)
+      html_options[:aria] = html_options.fetch(:aria, {}).merge(current: :page)
+    end
+
+    if block_given?
+      link_to options, html_options, &block
+    else
+      link_to name, options, html_options
+    end
+  end
+
   def set_meta_tags(
     title: nil,
     description: nil,
