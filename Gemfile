@@ -58,7 +58,9 @@ gem "rails-pg-extras", "~> 5.2.1"
 gem "ransack", "~> 4.0.0"
 gem "redis", "~> 4.8.1"
 gem "sitemap_generator", "~> 6.3.0"
-gem "view_component", "~> 3.0.0.rc5"
+
+# Avo does not work with view_component 3.0 yet
+gem "view_component", "~> 2.82.0"
 
 group :development, :test do
   gem "bullet"
