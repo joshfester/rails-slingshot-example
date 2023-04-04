@@ -1,0 +1,7 @@
+<h1>Teams</h1>
+
+<ul id="teams">
+  <%= render Teams::ListItemComponent.with_collection(@resources) %>
+</ul>
+
+<%= link_to "New team", new_team_path %>

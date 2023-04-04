@@ -46,7 +46,7 @@ gem "sassc-rails"
 # gem "image_processing", "~> 1.2"
 
 gem "action_policy", "~> 0.6.5"
-gem "avo", "~> 2.27.1"
+gem "avo", "~> 2.29.1"
 gem "brakeman", "~> 5.4.1"
 gem "devise", "~> 4.9.0"
 gem "good_job", "~> 3.14.1"
@@ -58,7 +58,7 @@ gem "rails-pg-extras", "~> 5.2.1"
 gem "ransack", "~> 4.0.0"
 gem "redis", "~> 4.8.1"
 gem "sitemap_generator", "~> 6.3.0"
-gem "view_component", "~> 2.82.0"
+gem "view_component", "~> 3.0.0.rc5"
 
 group :development, :test do
   gem "bullet"
