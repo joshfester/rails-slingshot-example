@@ -45,7 +45,7 @@
     class="
       <%= controller_name %>
       signed-<%= user_signed_in? ? 'in' : 'out'  %>
-      user-<%= current_user&.admin? ? 'is' : 'not'  %>-admin
+      <%= current_user&.admin? ? 'is' : 'not'  %>-admin
     "
   >
 

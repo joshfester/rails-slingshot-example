@@ -21,8 +21,9 @@
               <i class="fa-solid fa-circle-user"></i>
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
-              <li><a class="dropdown-item user-is-admin" href="<%= avo_path %>">Admin</a></li>
+              <li class="d-is-admin"><a class="dropdown-item" href="<%= avo_path %>">Admin</a></li>
               <li><a class="dropdown-item" href="<%= edit_user_registration_path %>">Profile</a></li>
+              <li class="d-signed-in"><a class="dropdown-item" href="<%= teams_path %>">Teams</a></li>
               <li><hr class="dropdown-divider"></li>
               <li>
                 <%= 
