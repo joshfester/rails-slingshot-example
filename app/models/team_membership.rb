@@ -1,6 +1,4 @@
 class TeamMembership < ApplicationRecord
-  has_secure_token :invite_token
-
   belongs_to :user
   belongs_to :team
 
@@ -8,4 +6,14 @@ class TeamMembership < ApplicationRecord
     member: "member",
     admin: "admin"
   }
+
+  def accept!
+    update! accepted_at: Time.current
+  end
+
+  private
+
+  def generate_acceptance_token
+    signed_id expires_in: 7.days, purpose: :accept_invite
+  end
 end
