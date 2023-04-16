@@ -23,6 +23,10 @@ class User < ApplicationRecord
     ["created_at", "email", "id", "remember_created_at", "reset_password_sent_at", "updated_at"]
   end
 
+  def membership(team:)
+    team_memberships.find_by team: team
+  end
+
   private
 
   def create_personal_team

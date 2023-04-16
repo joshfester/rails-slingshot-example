@@ -1,0 +1,8 @@
+<h1><%= @team.title %> Members</h1>
+
+<ul id="teams">
+  <%= render Memberships::ListItemComponent.with_collection(@resources) %>
+</ul>
+
+<%= link_to "Back to Teams", teams_path %>
+<%= link_to "Add Member", new_team_invitation_path %>

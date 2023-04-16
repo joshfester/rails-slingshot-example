@@ -46,7 +46,7 @@ gem "sassc-rails"
 # gem "image_processing", "~> 1.2"
 
 gem "action_policy", "~> 0.6.5"
-gem "avo", "~> 2.29.1"
+gem "avo", "~> 2.30.0"
 gem "brakeman", "~> 5.4.1"
 gem "devise", "~> 4.9.0"
 gem "good_job", "~> 3.14.1"

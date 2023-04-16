@@ -35,9 +35,5 @@ module Mvp
     config.action_controller.include_all_helpers = false
 
     config.active_job.queue_adapter = :good_job
-
-    # ViewComponent Compatibility with Rails form helpers
-    # https://viewcomponent.org/known_issues.html#compatibility-with-rails-form-helpers
-    config.view_component.capture_compatibility_patch_enabled = true
   end
 end

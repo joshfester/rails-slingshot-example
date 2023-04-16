@@ -1,0 +1,9 @@
+<h1>Invite a user to <%= @team.title %></h1>
+
+<%= render Invitations::FormComponent.new(resource: @resource) %>
+
+<br>
+
+<div>
+  <%= link_to "Back to members", team_memberships_path(@team) %>
+</div>
