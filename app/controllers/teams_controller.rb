@@ -1,10 +1,10 @@
 class TeamsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_resource, only: %i[ show edit update destroy ]
+  before_action :set_resource, only: %i[show edit update destroy]
 
   # GET /teams
   def index
-    @resources = Team.all
+    @resources = Current.user.teams
   end
 
   # GET /teams/1
@@ -13,7 +13,7 @@ class TeamsController < ApplicationController
 
   # GET /teams/new
   def new
-    @resource = Team.new owner: current_user
+    @resource = Team.new owner: Current.user
   end
 
   # GET /teams/1/edit
@@ -22,7 +22,7 @@ class TeamsController < ApplicationController
 
   # POST /teams
   def create
-    @resource = Team.new resource_params.merge(owner: current_user)
+    @resource = Team.new resource_params.merge(owner: Current.user)
 
     if @resource.save
       redirect_to @resource, notice: "Team was successfully created."
@@ -47,13 +47,14 @@ class TeamsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_resource
-      @resource = Team.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def resource_params
-      params.fetch(:team, {}).permit :title
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_resource
+    @resource = Team.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def resource_params
+    params.fetch(:team, {}).permit :title
+  end
 end

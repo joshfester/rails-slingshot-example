@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  
   authenticate :user, lambda { |u| AvoRoutePolicy.new(user: u).view? } do
     mount Avo::Engine, at: Avo.configuration.root_path
   end
@@ -12,7 +11,7 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
 
-  resources :teams do 
+  resources :teams do
     resources :invitations, controller: "teams/invitations"
     resources :memberships, controller: "teams/memberships", only: [:create, :index, :update, :destroy]
   end

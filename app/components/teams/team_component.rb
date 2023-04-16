@@ -5,6 +5,5 @@ module Teams
     def initialize(resource:)
       @resource = resource
     end
-
   end
 end
