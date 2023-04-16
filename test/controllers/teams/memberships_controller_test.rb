@@ -1,6 +1,6 @@
 require "test_helper"
 
-class Teams::MembersControllerTest < ActionDispatch::IntegrationTest
+class Teams::MembershipsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
