@@ -6,10 +6,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :validatable
 
-  has_many :memberships
+  has_many :memberships, dependent: :destroy
   has_many :teams, through: :memberships
-  has_many :owned_teams, foreign_key: :owner_id, class_name: "Team"
-  has_one :personal_team, -> { where is_personal: true }, foreign_key: :owner_id, class_name: "Team"
+  has_many :owned_teams, foreign_key: :owner_id, class_name: "Team", inverse_of: :owner, dependent: :destroy
+  has_one :personal_team,
+    -> { where is_personal: true },
+    foreign_key: :owner_id, class_name: "Team", inverse_of: :owner, dependent: :destroy
 
   enum role: {
     reader: "reader",
