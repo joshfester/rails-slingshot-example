@@ -1,7 +1,11 @@
 version: '3.4'
 services:
   web:
-    image: "ghcr.io/rails/cli"
+    image: "ghcr.io/joshfester/docked-pg:latest"
+    build:
+      context: "https://github.com/joshfester/docked-pg.git"
+      args:
+        RUBY_VERSION: 3.2.2
     command: bash -c "rm -f tmp/pids/server.pid && ./bin/dev"
     stdin_open: true
     tty: true
