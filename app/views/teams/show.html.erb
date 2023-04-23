@@ -1,10 +1,15 @@
-<p style="color: green"><%= notice %></p>
+<h1><%= @resource.title %></h1>
+
+<ul class="nav nav-underline mb-4">
+  <li class="nav-item">
+    <%= link_to "Overview", team_path(@resource), class: "nav-link active" %> 
+  </li>
+  <li class="nav-item">
+    <%= link_to "Members", team_memberships_path(@resource), class: "nav-link" %> 
+  </li>
+  <li class="nav-item">
+    <%= link_to "Settings", edit_team_path(@resource), class: "nav-link" %>
+  </li>
+</ul>
 
 <%= render Teams::TeamComponent.new(resource: @resource) %>
-
-<div>
-  <%= link_to "Edit this team", edit_team_path(@resource) %> |
-  <%= link_to "Back to teams", teams_path %>
-
-  <%= button_to "Destroy this team", @resource, method: :delete %>
-</div>

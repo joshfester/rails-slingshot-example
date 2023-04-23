@@ -9,6 +9,6 @@ class Teams::MembershipsController < ApplicationController
   private
 
   def set_team
-    @team = Team.find(params.require(:team_id))
+    @team = Team.find params.require(:team_id)
   end
 end
