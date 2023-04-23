@@ -1,3 +1,14 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <%= link_to "Teams", teams_path %> 
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">
+      <%= @team.title %>
+    </li>
+  </ol>
+</nav>
+
 <h1><%= @team.title %></h1>
 
 <ul class="nav nav-underline mb-4">
