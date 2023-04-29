@@ -18,9 +18,11 @@
   <li class="nav-item">
     <%= link_to "Members", team_memberships_path(@resource), class: "nav-link" %> 
   </li>
-  <li class="nav-item">
-    <%= link_to "Settings", edit_team_path(@resource), class: "nav-link" %>
-  </li>
+  <% if allowed_to?(:edit?, @resource) %>
+    <li class="nav-item">
+      <%= link_to "Settings", edit_team_path(@resource), class: "nav-link" %>
+    </li>
+  <% end %>
 </ul>
 
 <%= render Teams::TeamComponent.new(resource: @resource) %>

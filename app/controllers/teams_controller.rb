@@ -1,15 +1,15 @@
 class TeamsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_resource, only: %i[show edit update destroy]
+  before_action :authorize_resource, only: %i[show edit update destroy]
 
   # GET /teams
   def index
-    @resources = Current.user.teams
+    @resources = authorized_scope Team.all
   end
 
   # GET /teams/1
   def show
-    authorize! @resource
   end
 
   # GET /teams/new
@@ -43,18 +43,20 @@ class TeamsController < ApplicationController
 
   # DELETE /teams/1
   def destroy
-    @resource.destroy
-    redirect_to teams_url, notice: "Team was successfully destroyed."
+    @resource.archive
+    redirect_to teams_url, notice: "Team was successfully deleted."
   end
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
+  def authorize_resource
+    authorize! @resource
+  end
+
   def set_resource
     @resource = Team.find params[:id]
   end
 
-  # Only allow a list of trusted parameters through.
   def resource_params
     params.fetch(:team, {}).permit :title
   end

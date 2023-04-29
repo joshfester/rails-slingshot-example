@@ -25,3 +25,12 @@
 
 <%= render Teams::FormComponent.new(resource: @resource) %>
 
+<p>
+  <%= 
+    button_to "Delete Team", 
+      team_path(@resource), 
+      method: :delete, 
+      data: { "turbo-confirm": "Are you sure?" }, 
+      class: "btn btn-danger" 
+  %>
+</p>
