@@ -8,10 +8,7 @@ class User < ApplicationRecord
 
   has_many :memberships, dependent: :destroy
   has_many :teams, through: :memberships
-  has_many :owned_teams, foreign_key: :owner_id, class_name: "Team", inverse_of: :owner, dependent: :destroy
-  has_one :personal_team,
-    -> { where is_personal: true },
-    foreign_key: :owner_id, class_name: "Team", inverse_of: :owner, dependent: :destroy
+  has_one :personal_team, -> { where is_personal: true }, through: :teams
 
   enum role: {
     reader: "reader",
@@ -25,23 +22,11 @@ class User < ApplicationRecord
     ["created_at", "email", "id", "remember_created_at", "reset_password_sent_at", "updated_at"]
   end
 
-  def membership(team:)
-    team_memberships.find_by team: team
-  end
-
-  def team_admin?(team:)
-    id == team.owner_id ||
-      membership(team: team)&.role == "admin"
-  end
-
-  def team_member?(team:)
-    id == team.owner_id ||
-      membership(team: team).present?
-  end
-
   private
 
   def create_personal_team
-    Team.create! owner: self, title: "My Team", is_personal: true
+    team = Team.new title: "My Team", is_personal: true
+    team.memberships.build user: self, role: :admin
+    team.save!
   end
 end

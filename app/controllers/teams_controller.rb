@@ -14,7 +14,7 @@ class TeamsController < ApplicationController
 
   # GET /teams/new
   def new
-    @resource = Team.new owner: Current.user
+    @resource = Team.new
   end
 
   # GET /teams/1/edit
@@ -23,7 +23,8 @@ class TeamsController < ApplicationController
 
   # POST /teams
   def create
-    @resource = Team.new resource_params.merge(owner: Current.user)
+    @resource = Team.new resource_params
+    @resource.memberships.build user: Current.user, role: :admin
 
     if @resource.save
       redirect_to @resource, notice: "Team was successfully created."

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_15_181154) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_29_160408) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -102,12 +102,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_15_181154) do
 
   create_table "teams", force: :cascade do |t|
     t.string "title"
-    t.bigint "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "is_personal", default: false, null: false
     t.datetime "deleted_at"
-    t.index ["owner_id"], name: "index_teams_on_owner_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -128,5 +126,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_15_181154) do
   add_foreign_key "invitations", "teams"
   add_foreign_key "memberships", "teams"
   add_foreign_key "memberships", "users"
-  add_foreign_key "teams", "users", column: "owner_id"
 end
