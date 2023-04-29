@@ -29,6 +29,16 @@ class User < ApplicationRecord
     team_memberships.find_by team: team
   end
 
+  def team_admin?(team:)
+    id == team.owner_id ||
+      membership(team: team)&.role == "admin"
+  end
+
+  def team_member?(team:)
+    id == team.owner_id ||
+      membership(team: team).present?
+  end
+
   private
 
   def create_personal_team

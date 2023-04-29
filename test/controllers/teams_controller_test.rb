@@ -4,7 +4,7 @@ class TeamsControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
   setup do
-    sign_in FactoryBot.create(:user)
+    sign_in FactoryBot.create :user
     @resource = FactoryBot.create :team
   end
 
@@ -26,9 +26,9 @@ class TeamsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to team_url(Team.last)
   end
 
-  test "should show team" do
+  def test_get_show_anon
     get team_url(@resource)
-    assert_response :success
+    assert_response :unauthorized
   end
 
   test "should get edit" do

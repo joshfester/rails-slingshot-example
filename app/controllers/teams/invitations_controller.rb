@@ -6,6 +6,18 @@ class Teams::InvitationsController < ApplicationController
     @resource = @team.invitations.build
   end
 
+  def create
+    @resource = @team.invitations.build resource_params
+
+    authorize! @resource
+
+    if @resource.save
+      redirect_to team_path(@team)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
   def index
     @resources = @team.invitations.load_async
   end
@@ -13,6 +25,10 @@ class Teams::InvitationsController < ApplicationController
   private
 
   def set_team
-    @team = Team.find(params.require(:team_id))
+    @team = Team.find params.require(:team_id)
+  end
+
+  def resource_params
+    params.require(:invitation).permit :email
   end
 end

@@ -9,6 +9,7 @@ class TeamsController < ApplicationController
 
   # GET /teams/1
   def show
+    authorize! @resource
   end
 
   # GET /teams/new
@@ -50,7 +51,7 @@ class TeamsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_resource
-    @resource = Team.find(params[:id])
+    @resource = Team.find params[:id]
   end
 
   # Only allow a list of trusted parameters through.

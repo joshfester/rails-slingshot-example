@@ -46,7 +46,7 @@ gem "sassc-rails"
 # gem "image_processing", "~> 1.2"
 
 gem "action_policy", "~> 0.6.5"
-gem "avo", "~> 2.30.2"
+gem "avo", "~> 2.31.0"
 gem "brakeman", "~> 5.4.1"
 gem "devise", "~> 4.9.0"
 gem "good_job", "~> 3.14.1"
@@ -60,7 +60,7 @@ gem "redis", "~> 4.8.1"
 gem "sitemap_generator", "~> 6.3.0"
 
 # Avo does not work with view_component 3.0 yet
-gem "view_component", "~> 2.82.0"
+gem "view_component", "~> 3.0.0"
 
 group :development, :test do
   gem "bullet"
