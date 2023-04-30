@@ -3,6 +3,7 @@ class Team < ApplicationRecord
 
   has_many :invitations, dependent: :destroy
   has_many :memberships, dependent: :destroy
+  has_many :users, through: :memberships
 
   def admin?(user:)
     memberships.find_by(user: user)&.role == "admin"

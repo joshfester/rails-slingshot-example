@@ -360,7 +360,7 @@ DEPENDENCIES
   bullet
   capybara
   cssbundling-rails
-  debug (~> 1.7.1)
+  debug (~> 1.7.2)
   devise (~> 4.9.0)
   dotenv-rails
   factory_bot_rails (~> 6.2.0)

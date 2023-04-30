@@ -1,11 +1,11 @@
 class TeamsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_resource, only: %i[show edit update destroy]
-  before_action :authorize_resource, only: %i[show edit update destroy]
+  before_action :set_resource, except: %i[index]
+  before_action :authorize_resource, except: %i[index]
 
   # GET /teams
   def index
-    @resources = authorized_scope Team.all
+    @pagy, @resources = pagy authorized_scope(Team.all)
   end
 
   # GET /teams/1
@@ -14,7 +14,6 @@ class TeamsController < ApplicationController
 
   # GET /teams/new
   def new
-    @resource = Team.new
   end
 
   # GET /teams/1/edit
@@ -23,7 +22,7 @@ class TeamsController < ApplicationController
 
   # POST /teams
   def create
-    @resource = Team.new resource_params
+    @resource.assign_attributes resource_params
     @resource.memberships.build user: Current.user, role: :admin
 
     if @resource.save
@@ -51,11 +50,19 @@ class TeamsController < ApplicationController
   private
 
   def authorize_resource
-    authorize! @resource
+    if params[:id].present?
+      authorize! @resource 
+    else
+      authorize! :team
+    end
   end
 
   def set_resource
-    @resource = Team.find params[:id]
+    @resource = if params[:id].present?
+      Team.find(params[:id]) 
+    else
+      Team.new
+    end
   end
 
   def resource_params

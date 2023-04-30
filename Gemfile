@@ -58,12 +58,11 @@ gem "rails-pg-extras", "~> 5.2.1"
 gem "ransack", "~> 4.0.0"
 gem "redis", "~> 4.8.1"
 gem "sitemap_generator", "~> 6.3.0"
-
-# Avo does not work with view_component 3.0 yet
 gem "view_component", "~> 3.0.0"
 
 group :development, :test do
   gem "bullet"
+  gem "debug", "~> 1.7.2"
   gem "dotenv-rails"
   gem "rubocop-rails", require: false
   gem "standard", "~> 1.24.3"
@@ -71,7 +70,6 @@ end
 
 group :development do
   gem "foreman"
-  gem "debug", "~> 1.7.1"
 
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
