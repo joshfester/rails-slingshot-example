@@ -1,15 +1,14 @@
 class Teams::InvitationsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_team
+  before_action :set_resource, only: %i[new create]
+  before_action :authorize_resource, only: %i[new create]
 
   def new
-    @resource = @team.invitations.build
   end
 
   def create
-    @resource = @team.invitations.build resource_params
-
-    authorize! @resource
+    @resource.assign_attributes resource_params
 
     if @resource.save
       redirect_to team_path(@team)
@@ -30,5 +29,13 @@ class Teams::InvitationsController < ApplicationController
 
   def resource_params
     params.require(:invitation).permit :email
+  end
+  
+  def authorize_resource
+    authorize! @resource 
+  end
+
+  def set_resource
+    @resource = @team.invitations.build
   end
 end

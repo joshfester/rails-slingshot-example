@@ -1,4 +1,4 @@
-<%= helpers.form_with model: @resource, url: team_invitations_path do |f| %>
+<%= helpers.form_with model: @resource, url: team_invitations_path(@resource.team) do |f| %>
   <% if @resource.errors.any? %>
     <div class="text-danger">
       <h2><%= helpers.pluralize(@resource.errors.count, "error") %> prohibited this invitation from being sent:</h2>

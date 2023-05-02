@@ -49,6 +49,10 @@ class TeamsController < ApplicationController
 
   private
 
+  def resource_params
+    params.fetch(:team, {}).permit :title
+  end
+  
   def authorize_resource
     if params[:id].present?
       authorize! @resource 
@@ -63,9 +67,5 @@ class TeamsController < ApplicationController
     else
       Team.new
     end
-  end
-
-  def resource_params
-    params.fetch(:team, {}).permit :title
   end
 end
