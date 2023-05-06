@@ -32,7 +32,7 @@ class Teams::InvitationsController < ApplicationController
   end
   
   def authorize_resource
-    authorize! @resource 
+    authorize! :invitation, context: {team: @team}
   end
 
   def set_resource

@@ -50,7 +50,7 @@ class TeamsControllerTest < ActionDispatch::IntegrationTest
     user = FactoryBot.create :user
     sign_in user
 
-    assert_authorized_to(:new?, :team, context: {user: user}) do
+    assert_authorized_to :new?, :team do
       get new_team_url
     end
 
@@ -58,7 +58,7 @@ class TeamsControllerTest < ActionDispatch::IntegrationTest
   end
 
   def test_post_create_anon
-    assert_difference("Team.count", 0) do
+    assert_difference "Team.count", 0 do
       post teams_url, params: {team: { title: "New Team" }}
     end
 
@@ -70,8 +70,8 @@ class TeamsControllerTest < ActionDispatch::IntegrationTest
     title = "Team Gandalf"
     sign_in user
 
-    assert_difference("Team.count", 1) do
-      assert_authorized_to(:create?, :team, context: {user: user}) do
+    assert_difference "Team.count", 1 do
+      assert_authorized_to :create?, :team do
         post teams_url, params: {team: { title: title }}
       end
     end
@@ -105,7 +105,7 @@ class TeamsControllerTest < ActionDispatch::IntegrationTest
     resource = FactoryBot.create :team, users: [user]
     sign_in user
 
-    assert_authorized_to(:show?, resource, context: {user: user}) do
+    assert_authorized_to :show?, resource do
       get team_url(resource)
     end
 
@@ -131,7 +131,7 @@ class TeamsControllerTest < ActionDispatch::IntegrationTest
     Membership.create! user: user, team: resource, role: "admin"
     sign_in user
 
-    assert_authorized_to(:edit?, resource, context: {user: user}) do
+    assert_authorized_to :edit?, resource do
       get edit_team_url(resource)
     end
 
@@ -164,7 +164,7 @@ class TeamsControllerTest < ActionDispatch::IntegrationTest
     new_title = "Gandalf the White"
     sign_in user
 
-    assert_authorized_to(:update?, resource, context: {user: user}) do
+    assert_authorized_to :update?, resource do
       put team_url(resource), params: {team: {title: new_title}}
     end
     
@@ -189,7 +189,7 @@ class TeamsControllerTest < ActionDispatch::IntegrationTest
     resource = FactoryBot.create :team, users: [user]
     sign_in user
 
-    assert_difference("Team.count", 0) do
+    assert_difference "Team.count", 0 do
       delete team_url(resource)
     end
 
@@ -202,8 +202,8 @@ class TeamsControllerTest < ActionDispatch::IntegrationTest
     Membership.create! user: user, team: resource, role: "admin"
     sign_in user
 
-    assert_difference("Team.count", 0) do
-      assert_authorized_to(:destroy?, resource, context: {user: user}) do
+    assert_difference "Team.count", 0 do
+      assert_authorized_to :destroy?, resource, context: {user: user} do
         delete team_url(resource)
       end
     end

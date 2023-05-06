@@ -29,7 +29,9 @@ class Teams::InvitationsControllerTest < ActionDispatch::IntegrationTest
     @team.memberships.create user: user, role: "admin"
     sign_in user
 
-    get new_team_invitation_url(@team)
+    assert_authorized_to :new?, :invitation, context: {team: @team} do
+      get new_team_invitation_url(@team)
+    end
 
     assert_response :success
     assert_select "form[action='#{team_invitations_path(@team)}']" do 

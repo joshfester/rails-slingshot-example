@@ -1,6 +1,8 @@
 class InvitationPolicy < ApplicationPolicy
+  authorize :team
+
   def create?
-    record.team.admin? user: user
+    team.admin? user: user
   end
 
   def new?
