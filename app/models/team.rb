@@ -6,10 +6,14 @@ class Team < ApplicationRecord
   has_many :users, through: :memberships
 
   def admin?(user:)
-    memberships.find_by(user: user)&.role == "admin"
+    membership(user: user)&.role == "admin"
   end
 
   def member?(user:)
-    memberships.find_by(user: user).present?
+    membership(user: user)&.present?
+  end
+
+  def membership(user:)
+    memberships.find_by user: user
   end
 end

@@ -8,7 +8,9 @@ class Teams::InvitationsController < ApplicationController
   end
 
   def create
-    @resource.assign_attributes resource_params
+    @resource.assign_attributes resource_params.merge(
+      from_membership: @team.membership(user: current_user)
+    )
 
     if @resource.save
       redirect_to team_path(@team)
