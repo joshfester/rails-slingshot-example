@@ -48,7 +48,7 @@ class Teams::InvitationsControllerTest < ActionDispatch::IntegrationTest
       }
     end
 
-    assert_redirected_to root_url
+    assert_redirected_to new_user_session_url
     follow_redirect!
     assert_response :success
   end

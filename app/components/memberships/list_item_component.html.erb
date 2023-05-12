@@ -1,3 +1,16 @@
-<li>
-  <%= helpers.link_to @resource.title, helpers.team_membership_path(@resource.team, @resource) %>
+<li class="memberships-list-item d-flex align-items-center">
+  <%= @resource.title %>
+
+  <% if @resource.team.admin?(Current.user) %>
+    <%= helpers.link_to "edit", helpers.edit_team_membership_path(@resource.team, @resource), class: "mx-3" %>
+    <%= 
+      helpers.button_to "destroy", 
+        helpers.team_membership_path(@resource.team, @resource), 
+        method: :delete,
+        class: "btn btn-link text-danger p-0",
+        data: {
+          "turbo-confirm":  "Are you sure?"
+        }
+    %>
+  <% end %>
 </li>

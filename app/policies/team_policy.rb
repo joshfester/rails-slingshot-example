@@ -1,10 +1,10 @@
 class TeamPolicy < ApplicationPolicy
   def show?
-    record.member? user: user
+    record.member? user
   end
 
   def edit?
-    record.admin? user: user
+    record.admin? user
   end
 
   def new?

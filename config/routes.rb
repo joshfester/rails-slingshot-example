@@ -13,6 +13,6 @@ Rails.application.routes.draw do
 
   resources :teams do
     resources :invitations, controller: "teams/invitations"
-    resources :memberships, controller: "teams/memberships", only: [:create, :index, :update, :destroy]
+    resources :memberships, controller: "teams/memberships", only: [:create, :index, :edit, :update, :destroy]
   end
 end
