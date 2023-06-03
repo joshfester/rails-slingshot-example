@@ -36,6 +36,7 @@ module Mvp
 
     config.active_job.queue_adapter = :good_job
 
+    # TODO: figure out why parallelization causes random failures
     config.active_support.test_parallelization_threshold = 99999999
   end
 end

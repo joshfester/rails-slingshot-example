@@ -59,7 +59,9 @@ class Teams::MembershipsControllerDestroyTest < ActionDispatch::IntegrationTest
     sign_in user
 
     assert_difference "Membership.count", -1 do
-      delete team_membership_url(@team, membership)
+      assert_authorized_to :destroy?, membership do
+        delete team_membership_url(@team, membership)
+      end
     end
 
     assert_redirected_to team_url(@team)
@@ -74,7 +76,9 @@ class Teams::MembershipsControllerDestroyTest < ActionDispatch::IntegrationTest
     sign_in user
 
     assert_difference "Membership.count", -1 do
-      delete team_membership_url(@team, membership)
+      assert_authorized_to :destroy?, membership do
+        delete team_membership_url(@team, membership)
+      end
     end
 
     assert_redirected_to root_url
