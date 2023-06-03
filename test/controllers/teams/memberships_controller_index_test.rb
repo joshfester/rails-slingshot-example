@@ -16,13 +16,27 @@ class Teams::MembershipsControllerIndexTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  def test_get_index_non_member
+    user = FactoryBot.create :user
+    FactoryBot.create_list :membership, 21, :with_user, team: @team
+    sign_in user
+
+    get team_memberships_url(@team)
+
+    assert_redirected_to root_url
+    follow_redirect!
+    assert_response :success
+  end
+
   def test_get_index_non_admin
     user = FactoryBot.create :user
     FactoryBot.create :membership, user: user, team: @team
     FactoryBot.create_list :membership, 21, :with_user, team: @team
     sign_in user
 
-    get team_memberships_url(@team)
+    assert_authorized_to :index?, :membership, context: {team: @team} do
+      get team_memberships_url(@team)
+    end
 
     assert_response :success
     assert_select ".memberships-list-item", 20
@@ -39,7 +53,9 @@ class Teams::MembershipsControllerIndexTest < ActionDispatch::IntegrationTest
     FactoryBot.create_list :membership, 21, :with_user, team: @team
     sign_in user
 
-    get team_memberships_url(@team)
+    assert_authorized_to :index?, :membership, context: {team: @team} do
+      get team_memberships_url(@team)
+    end
 
     assert_response :success
     assert_select ".memberships-list-item", 20

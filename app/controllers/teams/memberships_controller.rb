@@ -5,6 +5,7 @@ class Teams::MembershipsController < ApplicationController
   before_action :authorize_resource, only: %i[edit update destroy]
 
   def index
+    authorize! :membership, context: {team: @team}
     @pagy, @resources = pagy @team.memberships.includes(:user).order(created_at: :desc)
   end
 

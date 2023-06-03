@@ -1,10 +1,14 @@
 class MembershipPolicy < ApplicationPolicy
-  def edit?
-    record.team.admin? user
+  authorize :team, optional: true
+
+  alias_rule :update?, to: :edit?
+
+  def index?
+    team.member? user
   end
 
-  def update?
-    edit?
+  def edit?
+    record.team.admin? user
   end
 
   def destroy?
