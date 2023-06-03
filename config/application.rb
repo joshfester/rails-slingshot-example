@@ -35,5 +35,7 @@ module Mvp
     config.action_controller.include_all_helpers = false
 
     config.active_job.queue_adapter = :good_job
+
+    config.active_support.test_parallelization_threshold = 99999999
   end
 end
