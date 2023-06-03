@@ -8,7 +8,8 @@ class User < ApplicationRecord
 
   has_many :memberships, dependent: :destroy
   has_many :teams, through: :memberships
-  has_one :personal_team, -> { where is_personal: true }, through: :teams
+  has_one :personal_team_membership, -> { joins(:team).where(teams: {is_personal: true}) }, class_name: "Membership"
+  has_one :personal_team, through: :personal_team_membership, source: :team
 
   enum role: {
     reader: "reader",
