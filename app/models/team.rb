@@ -4,7 +4,10 @@ class Team < ApplicationRecord
   has_many :invitations, dependent: :destroy
   has_many :memberships, dependent: :destroy
   has_many :users, through: :memberships
-  has_many :admin_memberships, -> { where role: "admin" }, class_name: "Membership"
+  has_many :admin_memberships, -> { where role: "admin" },
+    class_name: "Membership",
+    dependent: :destroy,
+    inverse_of: :team
   has_many :admin_users, through: :admin_memberships, source: :user
 
   def admin?(user)

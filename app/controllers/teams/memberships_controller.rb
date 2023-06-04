@@ -10,7 +10,6 @@ class Teams::MembershipsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
@@ -30,7 +29,7 @@ class Teams::MembershipsController < ApplicationController
     end
 
     redirect_link = if @team.member?(Current.user)
-      team_memberships_path(@team) 
+      team_memberships_path(@team)
     else
       root_path
     end

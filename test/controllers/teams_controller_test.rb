@@ -38,7 +38,6 @@ class TeamsControllerTest < ActionDispatch::IntegrationTest
         assert team_ids.include?(element.attribute("data-id").value.to_i)
       end
     end
-    
   end
 
   def test_get_new_anon
@@ -59,7 +58,7 @@ class TeamsControllerTest < ActionDispatch::IntegrationTest
 
   def test_post_create_anon
     assert_difference "Team.count", 0 do
-      post teams_url, params: {team: { title: "New Team" }}
+      post teams_url, params: {team: {title: "New Team"}}
     end
 
     assert_redirected_to new_user_session_url
@@ -72,7 +71,7 @@ class TeamsControllerTest < ActionDispatch::IntegrationTest
 
     assert_difference "Team.count", 1 do
       assert_authorized_to :create?, :team do
-        post teams_url, params: {team: { title: title }}
+        post teams_url, params: {team: {title: title}}
       end
     end
 
@@ -82,7 +81,7 @@ class TeamsControllerTest < ActionDispatch::IntegrationTest
     assert_equal title, resource.title
     assert membership.present?
     assert_equal "admin", membership.role
-    
+
     assert_redirected_to team_url(resource)
     follow_redirect!
     assert_response :success
@@ -167,7 +166,7 @@ class TeamsControllerTest < ActionDispatch::IntegrationTest
     assert_authorized_to :update?, resource do
       put team_url(resource), params: {team: {title: new_title}}
     end
-    
+
     assert_redirected_to team_url(resource)
     follow_redirect!
     assert_response :success

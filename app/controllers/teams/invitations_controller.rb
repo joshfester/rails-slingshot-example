@@ -32,7 +32,7 @@ class Teams::InvitationsController < ApplicationController
   def resource_params
     params.require(:invitation).permit :email
   end
-  
+
   def authorize_resource
     authorize! :invitation, context: {team: @team}
   end

@@ -24,6 +24,6 @@ class TeamPolicy < ApplicationPolicy
   end
 
   relation_scope do |relation|
-    relation.active.joins(:memberships).where(memberships: { user: user })
+    relation.active.joins(:memberships).where(memberships: {user: user})
   end
 end

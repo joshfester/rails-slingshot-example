@@ -4,8 +4,8 @@ require "action_policy/test_helper"
 class Teams::MembershipsControllerUpdateTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
   include ActionPolicy::TestHelper
-  
-  setup do 
+
+  setup do
     @team = FactoryBot.create :team
   end
 
@@ -42,7 +42,7 @@ class Teams::MembershipsControllerUpdateTest < ActionDispatch::IntegrationTest
     sign_in user
 
     put team_membership_url(@team, membership), params: {
-      membership: { role: "member" }
+      membership: {role: "member"}
     }
 
     assert_response :unprocessable_entity
@@ -58,7 +58,7 @@ class Teams::MembershipsControllerUpdateTest < ActionDispatch::IntegrationTest
 
     assert_authorized_to :update?, membership do
       put team_membership_url(@team, membership), params: {
-        membership: { role: "member" }
+        membership: {role: "member"}
       }
     end
 
@@ -67,5 +67,4 @@ class Teams::MembershipsControllerUpdateTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select ".alert", 1
   end
-  
 end

@@ -4,8 +4,8 @@ require "action_policy/test_helper"
 class Teams::InvitationsControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
   include ActionPolicy::TestHelper
-  
-  setup do 
+
+  setup do
     @team = FactoryBot.create :team
   end
 
@@ -34,7 +34,7 @@ class Teams::InvitationsControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_response :success
-    assert_select "form[action='#{team_invitations_path(@team)}']" do 
+    assert_select "form[action='#{team_invitations_path(@team)}']" do
       assert_select "input[name='invitation[email]']"
     end
   end
@@ -53,7 +53,7 @@ class Teams::InvitationsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  def test_post_create
+  def test_post_create_non_admin
     invite_email = "gandalf@middleearth.net"
     user = FactoryBot.create :user
     @team.memberships.create user: user

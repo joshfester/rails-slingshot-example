@@ -4,8 +4,8 @@ require "action_policy/test_helper"
 class Teams::MembershipsControllerDestroyTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
   include ActionPolicy::TestHelper
-  
-  setup do 
+
+  setup do
     @team = FactoryBot.create :team
   end
 
@@ -85,5 +85,4 @@ class Teams::MembershipsControllerDestroyTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_response :success
   end
-  
 end

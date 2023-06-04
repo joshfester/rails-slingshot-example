@@ -87,7 +87,7 @@ module Users
     def test_put_update
       password = "test12345678"
 
-      user = FactoryBot.create :user, 
+      user = FactoryBot.create :user,
         email: "gandalf_grey@middleearth.net",
         password: password
 
@@ -112,6 +112,5 @@ module Users
       assert_equal email, user.reload.email
       assert_not_equal old_encrypted_password, user.encrypted_password
     end
-
   end
 end

@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :membership do
     role { :member }
-    
+
     trait :with_user do
       user { association :user }
     end

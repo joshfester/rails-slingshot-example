@@ -15,7 +15,7 @@ class Membership < ApplicationRecord
   private
 
   def confirm_team_has_admin
-    if team.admin_memberships.filter {|i| i != self }.size == 0
+    if team.admin_memberships.count { |i| i != self } == 0
       errors.add :min_admins, "team must have at least one admin"
       throw :abort
     end

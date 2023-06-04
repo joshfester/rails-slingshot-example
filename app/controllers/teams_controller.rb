@@ -52,10 +52,10 @@ class TeamsController < ApplicationController
   def resource_params
     params.fetch(:team, {}).permit :title
   end
-  
+
   def authorize_resource
     if params[:id].present?
-      authorize! @resource 
+      authorize! @resource
     else
       authorize! :team
     end
@@ -63,7 +63,7 @@ class TeamsController < ApplicationController
 
   def set_resource
     @resource = if params[:id].present?
-      Team.find(params[:id]) 
+      Team.find(params[:id])
     else
       Team.new
     end

@@ -4,8 +4,8 @@ require "action_policy/test_helper"
 class Teams::MembershipsControllerEditTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
   include ActionPolicy::TestHelper
-  
-  setup do 
+
+  setup do
     @team = FactoryBot.create :team
   end
 
@@ -47,7 +47,5 @@ class Teams::MembershipsControllerEditTest < ActionDispatch::IntegrationTest
       assert_select "[name='membership[role]']", 1
       assert_select "[type=submit]", 1
     end
-    
   end
-  
 end

@@ -4,8 +4,8 @@ require "action_policy/test_helper"
 class Teams::MembershipsControllerIndexTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
   include ActionPolicy::TestHelper
-  
-  setup do 
+
+  setup do
     @team = FactoryBot.create :team
   end
 
@@ -49,7 +49,7 @@ class Teams::MembershipsControllerIndexTest < ActionDispatch::IntegrationTest
 
   def test_get_index_admin
     user = FactoryBot.create :user
-    membership = FactoryBot.create :membership, user: user, team: @team, role: "admin"
+    FactoryBot.create :membership, user: user, team: @team, role: "admin"
     FactoryBot.create_list :membership, 21, :with_user, team: @team
     sign_in user
 
@@ -59,11 +59,10 @@ class Teams::MembershipsControllerIndexTest < ActionDispatch::IntegrationTest
 
     assert_response :success
     assert_select ".memberships-list-item", 20
-    
+
     @team.memberships.order(created_at: :desc).limit(20).each do |membership|
       assert_select "form[action='#{team_membership_path(@team, membership)}']", 1
       assert_select "a[href='#{edit_team_membership_path(@team, membership)}']", 1
     end
   end
-  
 end
