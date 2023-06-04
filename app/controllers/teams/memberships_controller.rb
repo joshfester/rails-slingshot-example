@@ -14,7 +14,13 @@ class Teams::MembershipsController < ApplicationController
   end
 
   def update
-
+    if @resource.update(update_params)
+      flash[:notice] = "Member updated"
+      redirect_to team_path(@team)
+    else
+      flash[:danger] = "Unable to update member"
+      redirect_to edit_team_membership_path(@team, @resource)
+    end
   end
 
   def destroy
@@ -25,7 +31,7 @@ class Teams::MembershipsController < ApplicationController
     end
 
     redirect_link = if @team.member?(Current.user)
-      team_path(@team) 
+      team_memberships_path(@team) 
     else
       root_path
     end
@@ -45,5 +51,9 @@ class Teams::MembershipsController < ApplicationController
 
   def set_team
     @team = Team.find params.require(:team_id)
+  end
+
+  def update_params
+    params.require(:membership).permit(:role)
   end
 end

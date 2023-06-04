@@ -1,0 +1,22 @@
+<%= helpers.form_with(model: @resource, url: helpers.team_membership_path(@resource.team, @resource)) do |f| %>
+  <% if @resource.errors.any? %>
+    <div class="text-danger">
+      <h2><%= helpers.pluralize(@resource.errors.count, "error") %> prohibited this team from being saved:</h2>
+
+      <ul>
+        <% @resource.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= f.label :role %>
+    <%= f.select :role, Membership.roles.map {|i| [i[0].humanize, i[0]]}, { include_blank: false }, class: "form-select" %>
+  </div>
+
+  <div>
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

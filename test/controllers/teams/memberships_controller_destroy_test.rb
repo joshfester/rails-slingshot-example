@@ -39,15 +39,15 @@ class Teams::MembershipsControllerDestroyTest < ActionDispatch::IntegrationTest
   # Can't destroy if it's the only admin
   def test_min_admins
     user = FactoryBot.create :user
-    FactoryBot.create :membership, user: user, team: @team, role: "admin"
-    membership = FactoryBot.create :membership, :with_user, team: @team
+    membership = FactoryBot.create :membership, user: user, team: @team, role: "admin"
+    FactoryBot.create :membership, :with_user, team: @team
     sign_in user
 
     assert_difference "Membership.count", 0 do
       delete team_membership_url(@team, membership)
     end
 
-    assert_redirected_to root_url
+    assert_redirected_to team_memberships_url(@team)
     follow_redirect!
     assert_response :success
   end
@@ -64,7 +64,7 @@ class Teams::MembershipsControllerDestroyTest < ActionDispatch::IntegrationTest
       end
     end
 
-    assert_redirected_to team_url(@team)
+    assert_redirected_to team_memberships_url(@team)
     follow_redirect!
     assert_response :success
   end

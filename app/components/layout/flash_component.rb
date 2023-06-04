@@ -7,7 +7,7 @@ module Layout
     end
 
     def content
-      @content ||= @flash[:alert] ||= @flash[:notice]
+      @content ||= @flash[:alert] ||= @flash[:notice] ||= @flash[:danger]
     end
 
     def render?
