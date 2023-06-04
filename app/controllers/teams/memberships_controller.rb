@@ -18,8 +18,7 @@ class Teams::MembershipsController < ApplicationController
       flash[:notice] = "Member updated"
       redirect_to team_path(@team)
     else
-      flash[:danger] = "Unable to update member"
-      redirect_to edit_team_membership_path(@team, @resource)
+      render :edit, status: :unprocessable_entity
     end
   end
 

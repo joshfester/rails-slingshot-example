@@ -17,6 +17,7 @@ class Teams::MembershipsControllerUpdateTest < ActionDispatch::IntegrationTest
     assert_redirected_to new_user_session_url
     follow_redirect!
     assert_response :success
+    assert_select ".alert", 1
   end
 
   def test_non_admin
@@ -30,6 +31,7 @@ class Teams::MembershipsControllerUpdateTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_url
     follow_redirect!
     assert_response :success
+    assert_select ".alert", 1
   end
 
   # Can't destroy if it's the only admin
@@ -43,11 +45,9 @@ class Teams::MembershipsControllerUpdateTest < ActionDispatch::IntegrationTest
       membership: { role: "member" }
     }
 
-    assert_redirected_to edit_team_membership_url(@team, membership)
-    follow_redirect!
-    assert_response :success
+    assert_response :unprocessable_entity
     assert_equal "admin", membership.role
-    assert_select ".alert", 1
+    assert_select ".alert-danger", 1
   end
 
   def test_success
@@ -65,6 +65,7 @@ class Teams::MembershipsControllerUpdateTest < ActionDispatch::IntegrationTest
     assert_redirected_to team_url(@team)
     follow_redirect!
     assert_response :success
+    assert_select ".alert", 1
   end
   
 end

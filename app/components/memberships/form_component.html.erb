@@ -1,6 +1,6 @@
 <%= helpers.form_with(model: @resource, url: helpers.team_membership_path(@resource.team, @resource)) do |f| %>
   <% if @resource.errors.any? %>
-    <div class="text-danger">
+    <div class="alert alert-danger">
       <h2><%= helpers.pluralize(@resource.errors.count, "error") %> prohibited this team from being saved:</h2>
 
       <ul>
