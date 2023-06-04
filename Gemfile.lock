@@ -362,7 +362,7 @@ DEPENDENCIES
   cssbundling-rails
   debug (~> 1.7.2)
   devise (~> 4.9.0)
-  dotenv-rails
+  dotenv-rails (~> 2.8.1)
   factory_bot_rails (~> 6.2.0)
   foreman
   good_job (~> 3.14.1)

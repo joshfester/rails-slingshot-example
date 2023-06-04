@@ -49,6 +49,7 @@ gem "action_policy", "~> 0.6.5"
 gem "avo", "~> 2.31.0"
 gem "brakeman", "~> 5.4.1"
 gem "devise", "~> 4.9.0"
+gem "dotenv-rails", "~> 2.8.1"
 gem "good_job", "~> 3.14.1"
 gem "hiredis", "~> 0.6.3"
 gem "oj", "~> 3.14.2"
@@ -63,7 +64,6 @@ gem "view_component", "~> 3.0.0"
 group :development, :test do
   gem "bullet"
   gem "debug", "~> 1.7.2"
-  gem "dotenv-rails"
   gem "rubocop-rails", require: false
   gem "standard", "~> 1.24.3"
 end
