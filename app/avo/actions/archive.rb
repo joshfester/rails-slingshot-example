@@ -5,7 +5,8 @@ class Archive < Avo::BaseAction
   # end
 
   def handle(**args)
-    models, fields, current_user, resource = args.values_at(:models, :fields, :current_user, :resource)
+    # models, fields, current_user, resource = args.values_at(:models, :fields, :current_user, :resource)
+    models = args.values_at :models
 
     models.each do |model|
       model.archive

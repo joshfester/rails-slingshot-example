@@ -1,0 +1,18 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <%= link_to "Teams", teams_path %> 
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">
+      <%= @team.title %>
+    </li>
+  </ol>
+</nav>
+
+<h1>Invite a user to <%= @team.title %></h1>
+
+<%= render Invitations::FormComponent.new(resource: @resource) %>
+
+<div>
+  <%= link_to "Back to members", team_memberships_path(@team) %>
+</div>

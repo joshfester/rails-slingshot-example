@@ -1,3 +1,5 @@
+require "test_helper"
+
 module Users
   class PasswordsControllerTest < ActionDispatch::IntegrationTest
     def test_get_new

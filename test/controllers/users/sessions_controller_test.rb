@@ -1,3 +1,5 @@
+require "test_helper"
+
 module Users
   class SessionsControllerTest < ActionDispatch::IntegrationTest
     def test_get_new

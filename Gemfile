@@ -1,10 +1,10 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.2.1"
+ruby "3.2.2"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.0.4", ">= 7.0.4.2"
+gem "rails", "~> 7.0.4"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -46,7 +46,7 @@ gem "sassc-rails"
 # gem "image_processing", "~> 1.2"
 
 gem "action_policy", "~> 0.6.5"
-gem "avo", "~> 2.27.1"
+gem "avo", "~> 2.31.0"
 gem "brakeman", "~> 5.4.1"
 gem "devise", "~> 4.9.0"
 gem "good_job", "~> 3.14.1"
@@ -58,10 +58,11 @@ gem "rails-pg-extras", "~> 5.2.1"
 gem "ransack", "~> 4.0.0"
 gem "redis", "~> 4.8.1"
 gem "sitemap_generator", "~> 6.3.0"
-gem "view_component", "~> 2.82.0"
+gem "view_component", "~> 3.0.0"
 
 group :development, :test do
   gem "bullet"
+  gem "debug", "~> 1.7.2"
   gem "dotenv-rails"
   gem "rubocop-rails", require: false
   gem "standard", "~> 1.24.3"
@@ -69,7 +70,6 @@ end
 
 group :development do
   gem "foreman"
-  gem "debug", "~> 1.7.1"
 
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"

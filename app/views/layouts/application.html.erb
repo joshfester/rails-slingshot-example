@@ -45,7 +45,7 @@
     class="
       <%= controller_name %>
       signed-<%= user_signed_in? ? 'in' : 'out'  %>
-      user-<%= current_user&.admin? ? 'is' : 'not'  %>-admin
+      <%= Current.user&.admin? ? 'is' : 'not'  %>-admin
     "
   >
 
@@ -53,7 +53,7 @@
 
     <%= render Layout::FlashComponent.new(flash: flash) %>
 
-    <main>
+    <main class="container py-5">
       <%= yield %>
     </main>
 

@@ -1,0 +1,28 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <%= link_to "Teams", teams_path %> 
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">
+      <%= @resource.title %>
+    </li>
+  </ol>
+</nav>
+
+<h1><%= @resource.title %></h1>
+
+<ul class="nav nav-underline mb-4">
+  <li class="nav-item">
+    <%= link_to "Overview", team_path(@resource), class: "nav-link active" %> 
+  </li>
+  <li class="nav-item">
+    <%= link_to "Members", team_memberships_path(@resource), class: "nav-link" %> 
+  </li>
+  <% if allowed_to?(:edit?, @resource) %>
+    <li class="nav-item">
+      <%= link_to "Settings", edit_team_path(@resource), class: "nav-link" %>
+    </li>
+  <% end %>
+</ul>
+
+<%= render Teams::TeamComponent.new(resource: @resource) %>

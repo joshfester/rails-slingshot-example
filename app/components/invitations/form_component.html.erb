@@ -1,0 +1,22 @@
+<%= helpers.form_with model: @resource, url: team_invitations_path(@resource.team) do |f| %>
+  <% if @resource.errors.any? %>
+    <div class="text-danger">
+      <h2><%= helpers.pluralize(@resource.errors.count, "error") %> prohibited this invitation from being sent:</h2>
+
+      <ul>
+        <% @resource.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= f.label :email %>
+    <%= f.text_field :email, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= f.submit "Send", class: "btn btn-primary" %>
+  </div>
+<% end %>

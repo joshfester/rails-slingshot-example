@@ -1,0 +1,22 @@
+<%= helpers.form_with(model: @resource) do |f| %>
+  <% if @resource.errors.any? %>
+    <div class="text-danger">
+      <h2><%= helpers.pluralize(@resource.errors.count, "error") %> prohibited this team from being saved:</h2>
+
+      <ul>
+        <% @resource.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

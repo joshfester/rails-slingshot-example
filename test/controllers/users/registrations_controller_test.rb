@@ -1,3 +1,5 @@
+require "test_helper"
+
 module Users
   class RegistrationsControllerTest < ActionDispatch::IntegrationTest
     def test_get_new
@@ -12,7 +14,7 @@ module Users
     def test_post_create
       email = "gandalf@hotmail.com"
 
-      assert_difference "User.count", 1 do
+      assert_difference -> { Team.count } => 1, -> { User.count } => 1 do
         post user_registration_url, params: {
           user: {
             email: email,
@@ -22,7 +24,9 @@ module Users
         }
       end
 
-      assert_equal email, User.order(created_at: :desc).first.email
+      user = User.find_by email: email
+
+      assert user.personal_team.present?
       assert_redirected_to root_url
       follow_redirect!
       assert_response :success
